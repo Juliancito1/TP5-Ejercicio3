@@ -3,7 +3,8 @@
 
 const btnAgregar = document.getElementById('agregar');
 btnAgregar.addEventListener('click',agregarTarea) 
-
+let count = 0;
+let listadetareas = [];
 
 function agregarTarea(e)
 {   
@@ -11,14 +12,21 @@ function agregarTarea(e)
     e.preventDefault()
     let input = document.querySelector('input')
     let dato = input.value;
+    listadetareas.push(dato);
     let lugar = document.createElement('li')
-    lugar.innerHTML = `${dato}`
+    lugar.innerHTML += `${dato} <button class="btn btn-danger borrar" id="${count}">Eliminar Tarea</button>`
     padre.appendChild(lugar);
+    count++;
 }
 
-function borrarTarea(){
-    
+const btnEliminar = document.getElementsByClassName('borrar');
+btnEliminar.addEventListener('click',borrarTarea)
+
+function borrarTarea(e){
+    e.preventDefault();
+    opcion = parseInt(prompt("Ingrese el numero de la tarea a eliminar"))
 }
+
 
 
 
