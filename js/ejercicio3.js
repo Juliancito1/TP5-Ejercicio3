@@ -14,17 +14,16 @@ function agregarTarea(e)
     let dato = input.value;
     listadetareas.push(dato);
     let lugar = document.createElement('li')
-    lugar.innerHTML += `${dato} <button class="btn btn-danger borrar" id="${count}">Eliminar Tarea</button>`
+    lugar.innerHTML += `${dato} <button type="button" class="btn btn-danger borrar mt-3" onclick="borrarTarea()">Eliminar Tarea</button>`
+    lugar.setAttribute("id","tarea")
     padre.appendChild(lugar);
+    console.log(padre);
     count++;
 }
 
-const btnEliminar = document.getElementsByClassName('borrar');
-btnEliminar.addEventListener('click',borrarTarea)
-
-function borrarTarea(e){
-    e.preventDefault();
-    opcion = parseInt(prompt("Ingrese el numero de la tarea a eliminar"))
+function borrarTarea(){
+     const tar = document.querySelector('li')
+    tar.parentElement.removeChild(tar)
 }
 
 
