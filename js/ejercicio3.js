@@ -13,7 +13,7 @@ function agregarTarea(e)
     let dato = input.value;
     if(dato){
     let lugar = document.createElement('li')
-    lugar.innerHTML += `${dato} <button type="button" class="btn btn-danger borrar mt-4">Eliminar Tarea</button>`
+    lugar.innerHTML += `${dato} <button type="button" class="btn btn-danger borrar">Eliminar Tarea</button>`
     padre.appendChild(lugar);
     console.log(padre);
     borrarTarea()
