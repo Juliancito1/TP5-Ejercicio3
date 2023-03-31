@@ -2,9 +2,8 @@
 
 
 const btnAgregar = document.getElementById('agregar');
-btnAgregar.addEventListener('click',agregarTarea) 
-let count = 0;
-let listadetareas = [];
+btnAgregar.addEventListener('click',agregarTarea)
+
 
 function agregarTarea(e)
 {   
@@ -12,28 +11,22 @@ function agregarTarea(e)
     e.preventDefault()
     let input = document.querySelector('input')
     let dato = input.value;
-    listadetareas.push(dato);
+    if(dato){
     let lugar = document.createElement('li')
-    lugar.innerHTML += `${dato} <button type="button" class="btn btn-danger borrar mt-3" onclick="borrarTarea()">Eliminar Tarea</button>`
-    lugar.setAttribute("id","tarea")
+    lugar.innerHTML += `${dato} <button type="button" class="btn btn-danger borrar mt-4">Eliminar Tarea</button>`
     padre.appendChild(lugar);
     console.log(padre);
-    count++;
+    borrarTarea()
+    }
+    else{
+        alert("Usted no ingreso una tarea")
+    }
 }
 
 function borrarTarea(){
-     const tar = document.querySelector('li')
-    tar.parentElement.removeChild(tar)
+    const tarea = document.querySelectorAll('.borrar')
+    tarea.forEach(borrar => borrar.addEventListener('click', tar =>
+    tar.target.parentElement.remove()))
 }
 
 
-
-
-
-
-    // document.write("<ul>")
-    // for(let i=0; i<listatareas.length;i++)
-    // {
-    //     document.write(`<li>${listatareas[i]}</li>`)
-    // }
-    // document.write("</ul>")
